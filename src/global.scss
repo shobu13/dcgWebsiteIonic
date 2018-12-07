@@ -3,9 +3,34 @@
 @import '~@ionic/angular/css/normalize.css';
 @import '~@ionic/angular/css/structure.css';
 @import '~@ionic/angular/css/typography.css';
-
 @import '~@ionic/angular/css/padding.css';
 @import '~@ionic/angular/css/float-elements.css';
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+@media only screen {
+  .split-pane-side {
+    border-right: 0px !important;
+  }
+
+  .transparent {
+    background: transparent;
+  }
+
+  .list-item {
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-size: 2rem;
+  }
+
+  :hover.list-item {
+    background: #2e8015;
+  }
+
+  .scroll-content {
+    overflow: hidden;
+    margin-right: -17px;
+    overflow-y: scroll;
+  }
+}
