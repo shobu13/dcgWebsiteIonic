@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {Platform} from '@ionic/angular';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
@@ -16,11 +16,12 @@ export class AppComponent {
             icon: 'home'
         },
         {
-            title: "Connexion",
+            title: 'Connexion',
             url: '/auth',
             icon: 'contact'
         }
     ];
+
 
     constructor(
         private platform: Platform,
@@ -36,4 +37,5 @@ export class AppComponent {
             this.splashScreen.hide();
         });
     }
+
 }
