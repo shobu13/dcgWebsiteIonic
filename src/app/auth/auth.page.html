@@ -16,7 +16,6 @@
             <ion-card-subtitle>Connexion</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
-            <form>
                 <ion-list>
                     <ion-item>
                         <ion-label position="stacked">Pseudo</ion-label>
@@ -27,8 +26,7 @@
                         <ion-input type="password" [(ngModel)]="user.password" name="login-password"></ion-input>
                     </ion-item>
                 </ion-list>
-                <ion-button expand="block" class="ion-color-secondary" (click)="login()">Connexion</ion-button>
-            </form>
+                <ion-button expand="block" class="ion-color-secondary" [disabled]="_authService.token_expires" (click)="login()">Connexion</ion-button>
         </ion-card-content>
     </ion-card>
 

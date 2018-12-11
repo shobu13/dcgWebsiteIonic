@@ -16,7 +16,7 @@
             <ion-list-header>
                 <ion-label>Resources</ion-label>
             </ion-list-header>
-            <ion-item href="!#">
+            <ion-item href="!#" *ngIf="_auth.token_expires">
                 <ion-icon slot="start" color="medium" name="clock"></ion-icon>
                 <ion-label>Token expire in : {{ token_expiration_hour }}:{{ token_expiration_minutes }}:{{ token_expiration_seconds }}</ion-label>
             </ion-item>
