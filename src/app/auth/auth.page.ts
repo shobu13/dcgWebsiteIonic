@@ -21,7 +21,14 @@ export class AuthPage implements OnInit {
     }
 
     login() {
-        this._authService.login({'username': this.user.username, 'password': this.user.password});
+        this._authService.login({'username': this.user.username, 'password': this.user.password}).subscribe(
+            data => {
+                console.log("Co ok !");
+            },
+            err => {
+                console.log("co aps ok");
+            }
+        );
     }
 
     refreshToken() {

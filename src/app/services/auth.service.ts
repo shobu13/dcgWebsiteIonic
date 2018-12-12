@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {API_URL} from '../app.config';
+import {observable} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -24,7 +25,8 @@ export class AuthService {
     }
 
     public login(user) {
-        this.http.post(API_URL + '/api-token-auth/', JSON.stringify(user), this.httpOptions).subscribe(
+        const logger = this.http.post(API_URL + '/api-token-auth/', JSON.stringify(user), this.httpOptions);
+        logger.subscribe(
             data => {
                 this.updateData(data['token']);
                 console.log('connected !');
@@ -34,6 +36,7 @@ export class AuthService {
                 console.log('Meh');
             }
         );
+        return logger;
     }
 
     public refreshToken() {
