@@ -1,5 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from '../services/auth.service';
+import {EventService} from '../services/event.service';
+import {UserService} from '../services/user.service';
 
 @Component({
     selector: 'app-home',
@@ -12,8 +14,9 @@ export class HomePage implements OnInit, OnDestroy {
     private token_expiration_minutes: number;
     private token_expiration_seconds: number;
     private interval: any;
+    private _eventsList: any;
 
-    constructor(private _auth: AuthService) {
+    constructor(private _auth: AuthService, private _event: EventService, private _user: UserService) {
     }
 
     ngOnInit() {
@@ -28,7 +31,16 @@ export class HomePage implements OnInit, OnDestroy {
                 this.token_expiration = null;
             }
         }, 1000);
-
+        this._event.list().subscribe(
+            data => {
+                this._eventsList = data;
+            },
+            err => {
+                console.log('err');
+                console.log(err);
+            }
+        );
+        console.log(this._eventsList);
     }
 
     ngOnDestroy() {

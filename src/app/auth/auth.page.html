@@ -26,20 +26,10 @@
                     <ion-input type="password" [(ngModel)]="user.password" name="login-password"></ion-input>
                 </ion-item>
             </ion-list>
-            <ion-button expand="block" class="ion-color-secondary" [disabled]="_authService.token_expires"
+            <ion-button type="submit" type="submit" expand="block" color="secondary"
+                        [disabled]="_authService.token_expires"
                         (click)="login()">Connexion
             </ion-button>
         </ion-card-content>
     </ion-card>
-
-    <ion-card *ngIf="_authService.token_expires">
-        <ion-card-header>
-            <ion-card-subtitle>Deconnexion</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-            <ion-button expand="block" color="danger" (click)="logout()">Deconnexion
-            </ion-button>
-        </ion-card-content>
-    </ion-card>
-
 </ion-content>
