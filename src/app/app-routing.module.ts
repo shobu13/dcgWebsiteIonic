@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
+import {AuthGuard} from './_guard/auth.guard';
 
 const routes: Routes = [
     {
@@ -19,6 +20,16 @@ const routes: Routes = [
         path: 'auth/:action',
         loadChildren: './auth/auth.module#AuthPageModule'
     },
+    {
+        path: 'event/create',
+        loadChildren: './event/creation/creation.module#CreationPageModule',
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'event/detail',
+        loadChildren: './event/detail/detail.module#DetailPageModule'
+    },
+
 ];
 
 @NgModule({

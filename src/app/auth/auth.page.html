@@ -26,7 +26,7 @@
                     <ion-input type="password" [(ngModel)]="user.password" name="login-password"></ion-input>
                 </ion-item>
             </ion-list>
-            <ion-button type="submit" type="submit" expand="block" color="secondary"
+            <ion-button type="submit" type="submit" expand="block"
                         [disabled]="_authService.token_expires"
                         (click)="login()">Connexion
             </ion-button>

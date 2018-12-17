@@ -20,6 +20,11 @@ export class AppComponent {
             title: 'Deconnexion',
             url: '/auth/logout',
             icon: 'power'
+        },
+        {
+            title: 'nouvel évènement',
+            url: '/event/create',
+            icon: 'add'
         }
     ];
 

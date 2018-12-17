@@ -20,8 +20,12 @@ export class AuthPage implements OnInit {
             username: '',
             password: ''
         };
-        let action = this._route.snapshot.params['action'];
+        const action = this._route.snapshot.params['action'];
         if (action === 'logout') {
+            const menu = document.querySelector('ion-menu-controller');
+            console.log('logout');
+            console.log(menu);
+            menu.close();
             this._authService.logout();
             this._app.setAppPages();
             this._router.navigate(['home']);
@@ -31,12 +35,16 @@ export class AuthPage implements OnInit {
     login() {
         this._authService.login({'username': this.user.username, 'password': this.user.password}).subscribe(
             data => {
+                this._authService.updateData(data['token']);
+                console.log('connected !');
                 console.log('Co ok !');
-                this._router.navigate(['home']);
                 this._app.setAppPages();
+                this._router.navigate(['home']);
             },
             err => {
                 console.log('co aps ok');
+                this._authService.errors = err['error'];
+                console.log('Meh');
             }
         );
     }
