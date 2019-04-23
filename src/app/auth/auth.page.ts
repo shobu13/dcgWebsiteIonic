@@ -33,6 +33,7 @@ export class AuthPage implements OnInit {
     }
 
     login() {
+        // TODO ligne suivante pue la mort
         this._authService.login({'username': this.user.username, 'password': this.user.password}).subscribe(
             data => {
                 this._authService.updateData(data['token']);
